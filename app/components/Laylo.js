@@ -7,6 +7,7 @@ import {
   Alert,
   TouchableOpacity,
   Dimensions,
+  ImageBackground,
        } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import { Button } from './Button';
@@ -22,17 +23,17 @@ export default class Laylo extends React.Component {
   constructor(props) {
     super(props);
 
- imgClick = () => {
-    Alert.alert(
-  'Row 1 Base D20 roll \n \n Row 2 D20 + 15|10 \n\n Row 3 Dagger \n\n Row 4 Sneak Attack 5d8 Total \n\n Row 5 = Rows 3 & 4 + 7 = Total Damage',
-  'Enjoy!',
-  [
-    {text: 'T20 = Total D20 Roll + Flank/Canny Tumble/Charge', onPress: () => console.log('D20 Roll Total')},
-    {text: '888 = Total Damage, Dagger + SA', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
-  ],
-  { cancelable: false }
-)
-  }
+//  imgClick = () => {
+//     Alert.alert(
+//   'Row 1 Base D20 roll \n \n Row 2 D20 + 15|10 \n\n Row 3 Dagger \n\n Row 4 Sneak Attack 5d8 Total \n\n Row 5 = Rows 3 & 4 + 7 = Total Damage',
+//   'Enjoy!',
+//   [
+//     {text: 'T20 = Total D20 Roll + Flank/Canny Tumble/Charge', onPress: () => console.log('D20 Roll Total')},
+//     {text: '888 = Total Damage, Dagger + SA', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
+//   ],
+//   { cancelable: false }
+// )
+//   }
 
     this.state={
 
@@ -69,10 +70,10 @@ export default class Laylo extends React.Component {
     let diceroll8S2e = Math.floor(Math.random()  * 8) +1;
     let D8S2 = diceroll8S2a + diceroll8S2b +
       diceroll8S2c + diceroll8S2d + diceroll8S2e;
-    let D4S1 = Math.floor(Math.random()  * 4) +1;
-    let D4S2 = Math.floor(Math.random()  * 4) +1;
-    let TotalS1 = D8S1 + D4S1 + 7;
-    let TotalS2 = D8S2 + D4S2 + 7;
+    let D4S1 = Math.floor(Math.random()  * 4) +8;
+    let D4S2 = Math.floor(Math.random()  * 4) +8;
+    let TotalS1 = D8S1 + D4S1;
+    let TotalS2 = D8S2 + D4S2;
 
   this.setState({
 
@@ -95,15 +96,7 @@ export default class Laylo extends React.Component {
     const D20S2Style = this.state.NumberHolderD20S2 === 20 | this.state.NumberHolderD20S2 === 19 | this.state.NumberHolderD20S2 === 1 ? styles.bottomItemInner20picked : styles.bottomItemInner20;
 
     return (
-      <View style={styles.container}>
-
-          <View style={styles.top}>
-            <TouchableOpacity onPress={imgClick} style={styles.profileimage}>
-              <Image
-                style={styles.image}
-                source={require('../images/Laylo.jpg')}/>
-            </TouchableOpacity>
-          </View>
+      <ImageBackground source={require('../images/Laylo.jpg')} style={styles.container}>
 
           <Animatable.View animation="pulse" easing="ease-out" iterationCount="infinite" style={styles.center} >
             <Button style={styles.button} text="Attack!"
@@ -161,7 +154,7 @@ export default class Laylo extends React.Component {
               numberOfLines={1}>{this.state.NumberHolderTotalS2}</Animatable.Text>
               </View>
           </View>
-      </View>
+      </ImageBackground>
     );
   }
 }
@@ -170,14 +163,14 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       flexWrap: 'wrap',
-      backgroundColor: '#5386E4',
+      // backgroundColor: '#5386E4',
       padding: 5,
     },
     top: {
       height: '25%',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#5386E4',
+      // backgroundColor: '#5386E4',
     },
     profileimage: {
       width: 140,
@@ -195,8 +188,8 @@ const styles = StyleSheet.create({
       maxWidth: '65%',
     },
     center: {
-      height: '20%',
-      backgroundColor: '#5386E4',
+      height: '40%',
+      // backgroundColor: '#5386E4',
       justifyContent: 'center',
       alignContent: 'center',
       alignItems: 'center',
@@ -204,7 +197,7 @@ const styles = StyleSheet.create({
     },
     bottom: {
       height: '55%',
-      backgroundColor: '#5386E4',
+      // backgroundColor: '#5386E4',
       flexDirection: 'row',
       flexWrap: 'wrap',
       padding: 2,
