@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "Dice Roller Laylo",
+    "name": "Dice Roller Norio",
     "icon": "./logo.png",
-    "description": "A dice rolling app for Laylo the Blade.",
+    "description": "A dice rolling app for Norio the Honorable.",
     "sdkVersion": "25.0.0",
     "version": "1.0.0",
     "android": {
-      "package": "com.davidebinger.dicerollerlaylo"
+      "package": "com.davidebinger.dicerollernorio"
     }
   }
 }

@@ -7,29 +7,28 @@ import {
   Alert,
   TouchableOpacity,
   Dimensions,
-  ImageBackground,
        } from 'react-native';
 import { Button } from './Button';
 import * as Animatable from 'react-native-animatable';
 
-export default class Laylo2 extends React.Component {
+export default class Zahed7 extends React.Component {
   static navigationOptions = {
     title: '11|11|6 +7/4',
   };
   constructor(props) {
     super(props);
 
-//  imgClick = () => {
-//     Alert.alert(
-//   'Row 1 Base D20 roll \n\n Row 2 D20 + 11|11|6 \n\n Row 3 Dagger \n\n Row 4 \n Sneak Attack 5d8 Total \n\n Row 5 = Rows 3 & 4 + 7/4 = Total Damage',
-//   'Enjoy!',
-//   [
-//     {text: 'T20 = Total D20 Roll + Two Weapon Fighting', onPress: () => console.log('D20 Roll Total')},
-//     {text: '888 = Total Damage, Dagger + SA', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
-//   ],
-//   { cancelable: false }
-// )
-//   }
+ imgClick = () => {
+    Alert.alert(
+  'Row 1 Base D20 roll \n\n Row 2 D20 + 11|11|6 \n\n Row 3 Dagger \n\n Row 4 \n Sneak Attack 5d8 Total \n\n Row 5 = Rows 3 & 4 + 7/4 = Total Damage',
+  'Enjoy!',
+  [
+    {text: 'T20 = Total D20 Roll + Two Weapon Fighting', onPress: () => console.log('D20 Roll Total')},
+    {text: '888 = Total Damage, Dagger + SA', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
+  ],
+  { cancelable: false }
+)
+  }
 
     this.state={
 
@@ -114,8 +113,25 @@ export default class Laylo2 extends React.Component {
     const D20S3Style = this.state.NumberHolderD20S3 === 20 | this.state.NumberHolderD20S3 === 19 | this.state.NumberHolderD20S3 === 1 ? styles.bottomItemInner20picked : styles.bottomItemInner20;
 
     return (
-      <ImageBackground source={require('../images/Laylo7.jpg')} style={styles.container}>
+      <View style={styles.container}>
 
+          <View style={styles.top}>
+            <TouchableOpacity onPress={imgClick} style={styles.profileimage}>
+              <Image
+                style={styles.image}
+                source={require('../images/Zahed7.jpg')}
+              />
+            </TouchableOpacity>
+
+          </View>
+
+          <Animatable.View animation="pulse" easing="ease-out" iterationCount="infinite" style={styles.center} >
+            <Button style={styles.button} text="Attack!"
+            onPress={() => this.handleButtonPress()}
+
+            />
+
+          </Animatable.View>
 
           <View style={styles.bottom}>
 
@@ -194,14 +210,7 @@ export default class Laylo2 extends React.Component {
               numberOfLines={1}>{this.state.NumberHolderTotalS3}</Animatable.Text>
               </View>
           </View>
-          <Animatable.View animation="pulse" easing="ease-out" iterationCount="infinite" style={styles.center} >
-            <Button style={styles.button} text="Attack!"
-            onPress={() => this.handleButtonPress()}
-
-            />
-
-          </Animatable.View>
-      </ImageBackground>
+      </View>
     );
   }
 }
@@ -209,7 +218,7 @@ export default class Laylo2 extends React.Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      // backgroundColor: '#34E4EA',
+      backgroundColor: '#34E4EA',
       padding: 5,
     },
     top: {
@@ -233,15 +242,15 @@ const styles = StyleSheet.create({
     },
     center: {
       height: '10%',
-      // backgroundColor: '#34E4EA',
+      backgroundColor: '#34E4EA',
       justifyContent: 'center',
       alignContent: 'center',
       alignItems: 'center',
 
     },
     bottom: {
-      height: '90%',
-      // backgroundColor: '#34E4EA',
+      height: '55%',
+      backgroundColor: '#34E4EA',
       flexDirection: 'row',
       flexWrap: 'wrap',
       padding: 2,
