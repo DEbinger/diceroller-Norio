@@ -18,7 +18,7 @@ const {width, height} = Dimensions.get('window')
 
 export default class Zahed extends React.Component {
   static navigationOptions = {
-    title: 'Naginata 12 +18',
+    title: 'Naginata 12 +20',
   };
   constructor(props) {
     super(props);
@@ -38,7 +38,7 @@ export default class Zahed extends React.Component {
     let D20TotalS1 = D20S1 + 12;
     let diceroll8S1a = Math.floor(Math.random() * 8) + 1 ;
     let diceroll8S1b = Math.floor(Math.random() * 8) + 1 ;
-    let TotalS1 = diceroll8S1a + diceroll8S1b + 18;
+    let TotalS1 = diceroll8S1a + diceroll8S1b + 20;
 
   this.setState({
 
